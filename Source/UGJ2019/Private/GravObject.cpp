@@ -24,10 +24,6 @@ AGravObject::AGravObject()
 	GravitySphereComp->SetSphereRadius(3000);
 	GravitySphereComp->SetupAttachment(MeshComp);
 }
-void AGravObject::BeginPlay()
-{
-	Super::BeginPlay();
-}
 void AGravObject::OverlapInnerSphere(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
 	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& sweepResult)
 {
@@ -48,6 +44,7 @@ void AGravObject::Tick(float DeltaTime)
 			const float SphereRadius = GravitySphereComp->GetScaledSphereRadius();
 			const float ForceStrength = ForcePower;
 			PrimComp->AddRadialForce(GetActorLocation(), SphereRadius, ForceStrength, ERadialImpulseFalloff::RIF_Constant, true);
+			PrimComp->AddForce(FVector(-MovePower, -MovePower, 0), FName(), true);
 		}
 	}
 }

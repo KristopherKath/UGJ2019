@@ -19,8 +19,6 @@ public:
 	AGravObject();
 	UPROPERTY(EditInstanceOnly, Category = "Components")
 		float ForcePower;
-	UPROPERTY(EditInstanceOnly, Category = "Components")
-		float MovePower;
 
 protected:
 	// Called when the game starts or when spawned

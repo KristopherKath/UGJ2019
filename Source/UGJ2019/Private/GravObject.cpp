@@ -44,7 +44,6 @@ void AGravObject::Tick(float DeltaTime)
 			const float SphereRadius = GravitySphereComp->GetScaledSphereRadius();
 			const float ForceStrength = ForcePower;
 			PrimComp->AddRadialForce(GetActorLocation(), SphereRadius, ForceStrength, ERadialImpulseFalloff::RIF_Constant, true);
-			PrimComp->AddForce(FVector(-MovePower, -MovePower, 0), FName(), true);
 		}
 	}
 }

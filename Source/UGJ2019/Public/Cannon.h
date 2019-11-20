@@ -19,6 +19,14 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	void Fire();
+
+	UPROPERTY(EditDefaultsOnly, Category = "Player")
+	TSubclassOf<AActor> Projectile;
+
+private:
+	int Iteration;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
